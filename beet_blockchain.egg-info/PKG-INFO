@@ -1,0 +1,22 @@
+Metadata-Version: 2.1
+Name: beet-blockchain
+Version: 0.1.dev3
+Summary: beet blockchain full node, farmer, timelord, and wallet.
+Home-page: https://beetnetwork.org/
+License: Apache License
+Keywords: beet blockchain node
+Platform: UNKNOWN
+Requires-Python: >=3.7, <4
+Description-Content-Type: text/markdown
+Provides-Extra: uvloop
+Provides-Extra: dev
+Provides-Extra: upnp
+License-File: LICENSE
+
+# beet-blockchain
+
+**beet** is a modern community-centric green cryptocurrency based on a proof-of-space-and-time consensus algorithm. It is a community-supported fork of the [Chia Network](https://github.com/Chia-Network/chia-blockchain) codebase.
+
+For more information, see our website and downloads at https://beetnetwork.org.
+
+

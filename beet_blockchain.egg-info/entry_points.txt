@@ -1,0 +1,11 @@
+[console_scripts]
+beet = beet.cmds.beet:main
+beet_farmer = beet.server.start_farmer:main
+beet_full_node = beet.server.start_full_node:main
+beet_full_node_simulator = beet.simulator.start_simulator:main
+beet_harvester = beet.server.start_harvester:main
+beet_introducer = beet.server.start_introducer:main
+beet_timelord = beet.server.start_timelord:main
+beet_timelord_launcher = beet.timelord.timelord_launcher:main
+beet_wallet = beet.server.start_wallet:main
+
