@@ -86,7 +86,10 @@ type Props = {
 export default function About(props: Props) {
   const {
     version,
-    packageJson: { productName, description },
+    packageJson: {
+      productName,
+      description,
+    },
     versions,
   } = props;
 
@@ -95,10 +98,7 @@ export default function About(props: Props) {
       <head>
         <base href="./" />
         <meta charSet="utf-8" />
-        <meta
-          name="viewport"
-          content="width=device-width, minimum-scale=1.0, initial-scale=1, user-scalable=yes"
-        />
+        <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1, user-scalable=yes" />
         <title>About {productName}</title>
       </head>
       <body>
@@ -108,13 +108,13 @@ export default function About(props: Props) {
             <img src={icon} />
           </StyledLogoContainer>
 
-          <StyledTitle>
-            {productName} {version}
-          </StyledTitle>
+          <StyledTitle>{productName} {version}</StyledTitle>
         </StyledLink>
         <StyledSubTitle>{description}</StyledSubTitle>
         <Spacer />
-        <div className="copyright">Copyright (c) 2021 Chia Network, beet Network</div>
+        <div className="copyright">
+          Copyright (c) 2021 beet Network
+        </div>
         <Spacer />
         <VersionsTable>
           {versions?.electron && (
@@ -143,10 +143,7 @@ export default function About(props: Props) {
           )}
         </VersionsTable>
 
-        <BugReport
-          href="https://github.com/beet-Network/beet-blockchain/issues"
-          target="_blank"
-        >
+        <BugReport href="https://github.com/beet-Network/beet-blockchain/issues" target="_blank">
           Report an issue
         </BugReport>
         {'{{CSS}}'}

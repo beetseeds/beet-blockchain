@@ -2,14 +2,7 @@ import React from 'react';
 import { Trans } from '@lingui/macro';
 import styled from 'styled-components';
 import { Warning as WarningIcon } from '@material-ui/icons';
-import {
-  Card,
-  Flex,
-  Table,
-  FormatBytes,
-  StateColor,
-  Address,
-} from '@beet/core';
+import { Card, Flex, Table, FormatBytes, StateColor } from '@beet/core';
 import {
   Box,
   Typography,
@@ -82,25 +75,6 @@ const cols = [
   },
   {
     minWidth: '100px',
-    field: 'harvester.node_id',
-    tooltip: 'harvester.node_id',
-    title: <Trans>Node Id</Trans>,
-  },
-  {
-    minWidth: '100px',
-    field: ({ pool_contract_puzzle_hash }: Plot) => (
-      <Address value={pool_contract_puzzle_hash} tooltip copyToClipboard>
-        {(address) => (
-          <Typography variant="body2" noWrap>
-            {address}
-          </Typography>
-        )}
-      </Address>
-    ),
-    title: <Trans>Pool Contract Address</Trans>,
-  },
-  {
-    minWidth: '100px',
     field: 'filename',
     tooltip: 'filename',
     title: <Trans>Filename</Trans>,
@@ -121,18 +95,12 @@ export default function PlotOverviewPlots() {
     return null;
   }
 
-  const queuePlots = queue?.filter(
-    (item) => item.state !== PlotStatusEnum.FINISHED,
-  );
+  const queuePlots = queue?.filter((item) => item.state !== PlotStatusEnum.FINISHED);
 
   return (
     <>
-      <PlotHeader>
-        <Typography variant="h5">
-          <Trans>Harvester Plots</Trans>
-        </Typography>
-      </PlotHeader>
-      <Card>
+      <PlotHeader />
+      <Card title={<Trans>Local Harvester Plots</Trans>}>
         <Flex gap={1}>
           <Flex flexGrow={1}>
             <Typography variant="body2">
@@ -160,8 +128,6 @@ export default function PlotOverviewPlots() {
                       <PlotQueueSize queueItem={item} />
                     </TableCell>
                     <TableCell>{item.queue}</TableCell>
-                    <TableCell />
-                    <TableCell />
                     <TableCell />
                     <TableCell />
                     <TableCell />

@@ -18,7 +18,7 @@ import type { RootState } from '../../modules/rootReducer';
 const MnemonicField = (props: any) => (
   <Grid item xs={2}>
     <TextField
-      variant="filled"
+      variant="outlined"
       margin="normal"
       color="primary"
       id={props.id}

@@ -2,7 +2,11 @@ import React from 'react';
 import { Trans } from '@lingui/macro';
 import styled from 'styled-components';
 import { useSelector } from 'react-redux';
-import { Typography, Tooltip, IconButton } from '@material-ui/core';
+import {
+  Typography,
+  Tooltip,
+  IconButton,
+} from '@material-ui/core';
 import { Delete as DeleteIcon } from '@material-ui/icons';
 import {
   Flex,
@@ -45,19 +49,9 @@ const cols = [
     field(row: Connection) {
       return (
         <>
-          <FormatBytes
-            value={row.bytes_written}
-            unit="kiB"
-            removeUnit
-            fixedDecimals
-          />
+          <FormatBytes value={row.bytes_written} unit="kiB" removeUnit fixedDecimals />
           /
-          <FormatBytes
-            value={row.bytes_read}
-            unit="kiB"
-            removeUnit
-            fixedDecimals
-          />
+          <FormatBytes value={row.bytes_read} unit="kiB" removeUnit fixedDecimals />
         </>
       );
     },
@@ -93,20 +87,25 @@ export default function FarmYourHarvesterNetwork() {
   return (
     <Card
       gap={1}
-      title={<Trans>Your Harvester Network</Trans>}
-      tooltip={
+      title={(
         <Trans>
-          A harvester is a service running on a machine where plot(s) are
-          actually stored. A farmer and harvester talk to a full node to see the
-          state of the chain. View your network of connected harvesters below
-          Learn more
+          Your Harvester Network
         </Trans>
-      }
+      )}
+      tooltip={(
+        <Trans>
+          A harvester is a service running on a machine where plot(s) are actually stored. 
+          A farmer and harvester talk to a full node to see the state of the chain. 
+          View your network of connected harvesters below Learn more
+        </Trans>
+      )}
       interactive
     >
       <Flex justifyContent="flex-end" gap={1}>
         <Typography variant="caption" color="textSecondary">
-          <Trans>Connection Status:</Trans>
+          <Trans>
+            Connection Status:
+          </Trans>
         </Typography>
         <FormatConnectionStatus connected={connected} />
       </Flex>

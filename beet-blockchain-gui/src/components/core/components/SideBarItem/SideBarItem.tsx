@@ -1,4 +1,4 @@
-import React, { ReactNode, cloneElement } from 'react';
+import React, { ReactNode } from 'react';
 import styled from 'styled-components';
 import { useHistory, useRouteMatch } from 'react-router-dom';
 import { ListItem, ListItemIcon, ListItemText } from '@material-ui/core';
@@ -45,11 +45,7 @@ export default function SideBarItem(props: Props) {
 
   return (
     <StyledListItem button selected={isSelected} onClick={() => handleClick()}>
-      <StyledListItemIcon>
-        {cloneElement(icon, {
-          color: isSelected ? 'primary' : 'inherit',
-        })}
-      </StyledListItemIcon>
+      <StyledListItemIcon>{icon}</StyledListItemIcon>
       <StyledListItemText primary={title} />
     </StyledListItem>
   );

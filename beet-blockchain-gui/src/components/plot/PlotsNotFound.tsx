@@ -7,18 +7,15 @@ import type { RootState } from '../../modules/rootReducer';
 import PlotAction from './PlotAction';
 import type Plot from '../../types/Plot';
 
-const cols = [
-  {
-    field: 'filename',
-    tooltip: 'filename',
-    title: <Trans>Filename</Trans>,
-  },
-  {
-    width: '150px',
-    field: (plot: Plot) => <PlotAction plot={plot} />,
-    title: <Trans>Action</Trans>,
-  },
-];
+const cols = [{
+  field: 'filename',
+  tooltip: 'filename',
+  title: <Trans>Filename</Trans>,
+}, {
+  width: '150px',
+  field: (plot: Plot) => <PlotAction plot={plot} />,
+  title: <Trans>Action</Trans>,
+}];
 
 export default function PlotsNotFound() {
   const filenames = useSelector(
@@ -34,11 +31,13 @@ export default function PlotsNotFound() {
   }));
 
   return (
-    <Card title={<Trans>Not found Plots</Trans>}>
+    <Card
+      title={<Trans>Not found Plots</Trans>}
+    >
       <Typography component="h6" variant="body2">
         <Trans>
-          Caution, deleting these plots will delete them forever. Check that the
-          storage devices are properly connected.
+          Caution, deleting these plots will delete them forever. Check
+          that the storage devices are properly connected.
         </Trans>
       </Typography>
 

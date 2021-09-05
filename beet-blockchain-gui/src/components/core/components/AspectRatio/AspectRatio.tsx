@@ -28,7 +28,9 @@ export default function AspectRatio(props: Props) {
 
   return (
     <OuterWrapper ratio={ratio}>
-      <InnerWrapper>{children}</InnerWrapper>
+      <InnerWrapper>
+        {children}
+      </InnerWrapper>
     </OuterWrapper>
   );
 }

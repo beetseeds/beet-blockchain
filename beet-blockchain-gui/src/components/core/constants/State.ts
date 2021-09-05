@@ -1,7 +1,7 @@
 enum State {
-  SUCCESS = 'SUCCESS',
-  WARNING = 'WARNING',
-  ERROR = 'ERROR',
+  SUCCESS,
+  WARNING,
+  ERROR,
 }
 
 export default State;

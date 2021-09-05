@@ -1232,7 +1232,7 @@ export default [
   { word: 'oil', value: 1230 },
   { word: 'okay', value: 1231 },
   { word: 'old', value: 1232 },
-  { word: 'beet', value: 1233 },
+  { word: 'olive', value: 1233 },
   { word: 'olympic', value: 1234 },
   { word: 'omit', value: 1235 },
   { word: 'once', value: 1236 },

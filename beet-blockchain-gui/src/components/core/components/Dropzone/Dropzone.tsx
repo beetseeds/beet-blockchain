@@ -10,7 +10,9 @@ const StyledPaper = styled(Paper)`
   padding: ${({ theme }) => `${theme.spacing(1)}px ${theme.spacing(2)}px`};
 `;
 
-type ChildrenRender = (input: { isDragActive: boolean }) => ReactNode;
+type ChildrenRender = (input: {
+  isDragActive: boolean;
+}) => ReactNode
 
 type Props = {
   children: ReactNode | ChildrenRender;
@@ -24,7 +26,7 @@ type Props = {
 export default function Dropzone(props: Props) {
   const { children, onDrop, maxFiles, accept, ratio, processing } = props;
 
-  const config: DropzoneOptions = {
+  const config: DropzoneOptions = { 
     onDrop,
     maxFiles,
   };
@@ -34,25 +36,19 @@ export default function Dropzone(props: Props) {
   }
 
   const { getRootProps, getInputProps, isDragActive } = useDropzone(config);
-  const childrenContent =
-    typeof children === 'function' ? children({ isDragActive }) : children;
+  const childrenContent = typeof children === 'function'
+    ? children({ isDragActive })
+    : children;
 
   return (
     <div {...getRootProps()}>
       <input {...getInputProps()} />
       <StyledPaper>
         <AspectRatio ratio={ratio}>
-          <Flex
-            alignItems="center"
-            justifyContent="center"
-            flexDirection="column"
-            height="100%"
-          >
+          <Flex alignItems="center" justifyContent="center" flexDirection="column" height="100%">
             {processing ? (
               <CircularProgress color="secondary" />
-            ) : (
-              childrenContent
-            )}
+            ) : childrenContent}
           </Flex>
         </AspectRatio>
       </StyledPaper>
@@ -63,6 +59,6 @@ export default function Dropzone(props: Props) {
 Dropzone.defaultProps = {
   maxFiles: undefined,
   accept: undefined,
-  ratio: 16 / 6,
+  ratio: 16/6,
   processing: false,
 };

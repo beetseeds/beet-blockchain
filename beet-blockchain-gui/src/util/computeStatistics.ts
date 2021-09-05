@@ -2,8 +2,9 @@ import Big from 'big.js';
 import TransactionType from '../constants/TransactionType';
 import type Wallet from '../types/Wallet';
 
-// deprecated
-export default function computeStatistics(wallets: Wallet[]): {
+export default function computeStatistics(
+  wallets: Wallet[],
+): {
   totalbeetFarmed: Big;
   biggestHeight: number;
   biggestRewardHeight: number;

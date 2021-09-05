@@ -1,6 +1,5 @@
-import React, { ReactNode } from 'react';
+import React, { useState, ReactNode } from 'react';
 import { Trans } from '@lingui/macro';
-import { useToggle } from 'react-use';
 import { Typography } from '@material-ui/core';
 import styled from 'styled-components';
 import {
@@ -17,24 +16,13 @@ const StyledToggleAdvancedOptions = styled(({ expanded, ...rest }) => (
 `;
 
 type Props = {
-  children?: ReactNode;
-  expanded: boolean;
-  hideExpanded?: boolean;
-  moreTitle?: ReactNode;
-  lessTitle?: ReactNode;
+  children?: ReactNode,
+  expanded: boolean,
 };
 
 export default function AdvancedOptions(props: Props) {
-  const {
-    children,
-    expanded: defaultExpanded,
-    hideExpanded,
-    moreTitle,
-    lessTitle,
-  } = props;
-  const [isExpanded, setIsExpanded] = useToggle(defaultExpanded);
-
-  const hideTitle = hideExpanded && isExpanded;
+  const { children, expanded: defaultExpanded } = props;
+  const [isExpanded, setIsExpanded] = useState<boolean>(defaultExpanded);
 
   function handleToggle() {
     setIsExpanded(!isExpanded);
@@ -42,35 +30,36 @@ export default function AdvancedOptions(props: Props) {
 
   return (
     <Flex flexDirection="column" gap={1}>
-      {!hideTitle && (
-        <StyledToggleAdvancedOptions
-          variant="caption"
-          expanded={isExpanded}
-          onClick={handleToggle}
-        >
-          {isExpanded ? (
-            <Flex alignItems="center">
-              <KeyboardArrowUpIcon />
-              {lessTitle}
-            </Flex>
-          ) : (
-            <Flex alignItems="center">
-              <KeyboardArrowDownIcon />
-              {moreTitle}
-            </Flex>
-          )}
-        </StyledToggleAdvancedOptions>
-      )}
+      <StyledToggleAdvancedOptions
+        variant="caption"
+        expanded={isExpanded}
+        onClick={handleToggle}
+      >
+        {isExpanded ? (
+          <Flex alignItems="center">
+            <KeyboardArrowUpIcon />
+            <Trans>
+              Hide Advanced Options
+            </Trans>
+          </Flex>
+        ) : (
+          <Flex alignItems="center">
+            <KeyboardArrowDownIcon />
+            <Trans>
+              Show Advanced Options
+            </Trans>
+          </Flex>
+        )}
+      </StyledToggleAdvancedOptions>
 
-      <Accordion expanded={isExpanded}>{children}</Accordion>
+      <Accordion expanded={isExpanded}>
+        {children}
+      </Accordion>
     </Flex>
-  );
+  )
 }
 
 AdvancedOptions.defaultProps = {
   expanded: false,
   children: undefined,
-  hideExpanded: false,
-  moreTitle: <Trans>Show Advanced Options</Trans>,
-  lessTitle: <Trans>Hide Advanced Options</Trans>,
 };

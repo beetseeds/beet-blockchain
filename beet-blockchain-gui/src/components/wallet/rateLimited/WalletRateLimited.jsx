@@ -270,7 +270,13 @@ const IncompleteCard = (props) => {
 
   const classes = useStyles();
   return (
-    <Card title={<Trans>Rate Limited User Wallet Setup</Trans>}>
+    <Card
+      title={(
+        <Trans>
+          Rate Limited User Wallet Setup
+        </Trans>
+      )}
+    >
       <Grid item xs={12}>
         <div className={classes.setupSection}>
           <Box display="flex">
@@ -290,9 +296,11 @@ const IncompleteCard = (props) => {
             <TextField
               disabled
               fullWidth
-              label={<Trans>User Pubkey</Trans>}
+              label={
+                <Trans>User Pubkey</Trans>
+              }
               value={pubkey}
-              variant="filled"
+              variant="outlined"
             />
           </Box>
           <Box>
@@ -314,8 +322,8 @@ const IncompleteCard = (props) => {
             <Box flexGrow={1} style={{ marginTop: 10, marginBottom: 0 }}>
               <Typography variant="subtitle1">
                 <Trans>
-                  When you receive the setup info packet from your admin, enter
-                  it below to complete your Rate Limited Wallet setup:
+                  When you receive the setup info packet from your admin,
+                  enter it below to complete your Rate Limited Wallet setup:
                 </Trans>
               </Typography>
             </Box>
@@ -330,7 +338,9 @@ const IncompleteCard = (props) => {
                   ip_input = input;
                 }}
                 margin="normal"
-                label={<Trans>Info Packet</Trans>}
+                label={
+                  <Trans>Info Packet</Trans>
+                }
               />
             </Box>
           </Box>
@@ -388,12 +398,16 @@ const RLDetailsCard = (props) => {
   const classes = useStyles();
   if (type === 'user') {
     return (
-      <Card title={<Trans>Rate Limited Info</Trans>}>
+      <Card
+        title={<Trans>Rate Limited Info</Trans>}
+      >
         <Grid item xs={12}>
           <Box display="flex">
             <Box flexGrow={1}>
               <Typography variant="subtitle1">
-                <Trans>Spending Interval (number of blocks): {interval}</Trans>
+                <Trans>
+                  Spending Interval (number of blocks): {interval}
+                </Trans>
               </Typography>
             </Box>
             <Box flexGrow={1}>
@@ -414,7 +428,7 @@ const RLDetailsCard = (props) => {
                 fullWidth
                 label={<Trans>My Pubkey</Trans>}
                 value={user_pubkey}
-                variant="filled"
+                variant="outlined"
               />
             </Box>
             <Box>
@@ -435,12 +449,16 @@ const RLDetailsCard = (props) => {
   }
   if (type === 'admin') {
     return (
-      <Card title={<Trans>Rate Limited Info</Trans>}>
+      <Card
+        title={<Trans>Rate Limited Info</Trans>}
+      >
         <Grid item xs={12}>
           <Box display="flex" style={{ marginBottom: 20, marginTop: 20 }}>
             <Box flexGrow={1}>
               <Typography variant="subtitle1">
-                <Trans>Spending Interval (number of blocks): {interval}</Trans>
+                <Trans>
+                  Spending Interval (number of blocks): {interval}
+                </Trans>
               </Typography>
             </Box>
             <Box flexGrow={1}>
@@ -469,9 +487,11 @@ const RLDetailsCard = (props) => {
               <TextField
                 disabled
                 fullWidth
-                label={<Trans>Info Packet</Trans>}
+                label={
+                  <Trans>Info Packet</Trans>
+                }
                 value={ip_hex}
-                variant="filled"
+                variant="outlined"
               />
             </Box>
             <Box>
@@ -538,14 +558,18 @@ const BalanceCard = (props) => {
   const classes = useStyles();
 
   return (
-    <Card title={<Trans>Balance</Trans>}>
+    <Card
+      title={<Trans>Balance</Trans>}
+    >
       <BalanceCardSubSection
         title={<Trans>Total Balance</Trans>}
         balance={balance}
         tooltip=""
       />
       <BalanceCardSubSection
-        title={<Trans>Spendable Balance</Trans>}
+        title={
+          <Trans>Spendable Balance</Trans>
+        }
         balance={balance_spendable}
         tooltip=""
       />
@@ -559,23 +583,37 @@ const BalanceCard = (props) => {
                 id="panel1a-header"
               >
                 <Typography className={classes.heading}>
-                  <Trans>View pending balances</Trans>
+                  <Trans>
+                    View pending balances
+                  </Trans>
                 </Typography>
               </AccordionSummary>
               <AccordionDetails>
                 <Grid container spacing={0}>
                   <BalanceCardSubSection
-                    title={<Trans>Pending Total Balance</Trans>}
+                    title={
+                      <Trans>
+                        Pending Total Balance
+                      </Trans>
+                    }
                     balance={balance_ptotal}
                     tooltip=""
                   />
                   <BalanceCardSubSection
-                    title={<Trans>Pending Balance</Trans>}
+                    title={
+                      <Trans>
+                        Pending Balance
+                      </Trans>
+                    }
                     balance={balance_pending}
                     tooltip=""
                   />
                   <BalanceCardSubSection
-                    title={<Trans>Pending Change</Trans>}
+                    title={
+                      <Trans>
+                        Pending Change
+                      </Trans>
+                    }
                     balance={balance_change}
                     tooltip=""
                   />
@@ -620,8 +658,10 @@ const SendCard = (props) => {
       dispatch(
         openDialog(
           <AlertDialog>
-            <Trans>Please finish syncing before making a transaction</Trans>
-          </AlertDialog>,
+            <Trans>
+              Please finish syncing before making a transaction
+            </Trans>
+          </AlertDialog>
         ),
       );
       return;
@@ -636,8 +676,10 @@ const SendCard = (props) => {
       dispatch(
         openDialog(
           <AlertDialog>
-            <Trans>Please enter a valid numeric amount</Trans>
-          </AlertDialog>,
+            <Trans>
+              Please enter a valid numeric amount
+            </Trans>
+          </AlertDialog>
         ),
       );
       return;
@@ -646,8 +688,10 @@ const SendCard = (props) => {
       dispatch(
         openDialog(
           <AlertDialog>
-            <Trans>Please enter a valid numeric fee</Trans>
-          </AlertDialog>,
+            <Trans>
+              Please enter a valid numeric fee
+            </Trans>
+          </AlertDialog>
         ),
       );
       return;
@@ -668,7 +712,7 @@ const SendCard = (props) => {
             <Trans>
               Please enter 0 fee. Positive fees not supported yet for RL.
             </Trans>
-          </AlertDialog>,
+          </AlertDialog>
         ),
       );
       return;
@@ -681,7 +725,9 @@ const SendCard = (props) => {
   }
 
   return (
-    <Card title={<Trans>Create Transaction</Trans>}>
+    <Card
+      title={<Trans>Create Transaction</Trans>}
+    >
       {result_message && (
         <Grid item xs={12}>
           <p className={result_class}>{result_message}</p>
@@ -698,7 +744,11 @@ const SendCard = (props) => {
               inputRef={(input) => {
                 address_input = input;
               }}
-              label={<Trans>Address / Puzzle hash</Trans>}
+              label={
+                <Trans>
+                  Address / Puzzle hash
+                </Trans>
+              }
             />
           </Box>
           <Box />
@@ -756,7 +806,7 @@ const SendCard = (props) => {
 
 export default function RateLimitedWallet(props) {
   const id = useSelector((state) => state.wallet_menu.id);
-  const wallets = useSelector((state) => state.wallet_state.wallets ?? []);
+  const wallets = useSelector((state) => state.wallet_state.wallets);
   const data = useSelector((state) => state.wallet_state.wallets[id].data);
   const data_parsed = JSON.parse(data);
   const { type } = data_parsed;

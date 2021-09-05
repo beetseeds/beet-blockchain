@@ -14,7 +14,6 @@ import fullNodeReducer from './fullNode';
 import farmingReducer from './farming';
 import plotControlReducer from './plotterControl';
 import plotQueueReducer from './plotQueue';
-import plotNFTReducer from './plotNFT';
 import progressReducer from './progress';
 import backupReducer from './backup';
 import localStorageReducer from './localStorage';
@@ -35,7 +34,6 @@ const reducers = {
   progress: progressReducer,
   backup_state: backupReducer,
   plot_queue: plotQueueReducer,
-  plot_nft: plotNFTReducer,
   local_storage: localStorageReducer,
 };
 

@@ -1,13 +1,10 @@
 import React, { ReactNode } from 'react';
-import { Menu, MenuProps } from '@material-ui/core';
+import { Menu } from '@material-ui/core';
 import { MoreVert as MoreVertIcon } from '@material-ui/icons';
 import IconButton from '../IconButton';
 
-// anchorOrigin={{ vertical: "bottom", horizontal: "right" }}
-// transformOrigin={{ vertical: "top", horizontal: "right" }}
-
-type Props = MenuProps & {
-  children: ({ onClose }: { onClose: () => void }) => ReactNode;
+type Props = {
+  children: ({ onClose }: { onClose: () => void }) => ReactNode,
 };
 
 export default function More(props: Props) {
@@ -25,7 +22,11 @@ export default function More(props: Props) {
 
   return (
     <>
-      <IconButton aria-label="more" aria-haspopup="true" onClick={handleClick}>
+      <IconButton
+        aria-label="more"
+        aria-haspopup="true"
+        onClick={handleClick}
+      >
         <MoreVertIcon />
       </IconButton>
       <Menu
@@ -36,7 +37,7 @@ export default function More(props: Props) {
         open={open}
       >
         {children({
-          onClose: handleClose,
+          onClose: handleClose
         })}
       </Menu>
     </>

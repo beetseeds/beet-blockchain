@@ -15,9 +15,7 @@ const StyledFiberManualRecordIcon = styled(FiberManualRecordIcon)`
   font-size: 1rem;
 `;
 
-const StyledFlexContainer = styled(({ color: Color, ...rest }) => (
-  <Flex {...rest} />
-))`
+const StyledFlexContainer = styled(({ color: Color, ...rest }) => <Flex {...rest} />)`
   color: ${({ color }) => color};
 `;
 
@@ -33,8 +31,12 @@ export default function StateComponent(props: Props) {
 
   return (
     <StyledFlexContainer color={color} alignItems="center" gap={1}>
-      <span>{children}</span>
-      {indicator && <StyledFiberManualRecordIcon />}
+      <span>
+        {children}
+      </span>
+      {indicator && (
+        <StyledFiberManualRecordIcon />
+      )} 
     </StyledFlexContainer>
   );
 }

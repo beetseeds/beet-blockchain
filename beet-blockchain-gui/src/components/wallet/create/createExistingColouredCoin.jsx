@@ -67,8 +67,10 @@ export const CreateExistingCCWallet = () => {
       dispatch(
         openDialog(
           <AlertDialog>
-            <Trans>Please enter a valid numeric fee</Trans>
-          </AlertDialog>,
+            <Trans>
+              Please enter a valid numeric fee
+            </Trans>
+          </AlertDialog>
         ),
       );
       return;
@@ -90,7 +92,9 @@ export const CreateExistingCCWallet = () => {
           </Box>
           <Box flexGrow={1} className={classes.title}>
             <Typography component="h6" variant="h6">
-              <Trans>Create wallet for colour</Trans>
+              <Trans>
+                Create wallet for colour
+              </Trans>
             </Typography>
           </Box>
         </Box>
@@ -107,7 +111,11 @@ export const CreateExistingCCWallet = () => {
               inputRef={(input) => {
                 colour_string = input;
               }}
-              label={<Trans>Colour String</Trans>}
+              label={
+                <Trans>
+                  Colour String
+                </Trans>
+              }
             />
           </Box>
           <Box flexGrow={1}>

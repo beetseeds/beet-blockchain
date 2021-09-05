@@ -33,8 +33,13 @@ type Props = {
 };
 
 export default function FormatConnectionStatus(props: Props) {
-  const { connected, connectedTitle, notConnectedTitle, variant, iconSize } =
-    props;
+  const {
+    connected,
+    connectedTitle,
+    notConnectedTitle,
+    variant,
+    iconSize,
+  } = props;
   const color = connected ? 'primary' : 'secondary';
 
   return (
@@ -48,8 +53,12 @@ export default function FormatConnectionStatus(props: Props) {
 }
 
 FormatConnectionStatus.defaultProps = {
-  connectedTitle: <Trans>Connected</Trans>,
-  notConnectedTitle: <Trans>Not connected</Trans>,
+  connectedTitle: (
+    <Trans>Connected</Trans>
+  ),
+  notConnectedTitle: (
+    <Trans>Not connected</Trans>
+  ),
   variant: 'caption',
   iconSize: 'sm',
 };

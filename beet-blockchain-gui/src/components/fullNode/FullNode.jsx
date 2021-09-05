@@ -2,7 +2,7 @@ import React from 'react';
 import { Trans } from '@lingui/macro';
 import { get } from 'lodash';
 import {
-  // FormatBytes,
+  FormatBytes,
   FormatLargeNumber,
   Flex,
   Card,
@@ -13,13 +13,12 @@ import {
 import { Status } from '@beet/icons';
 import { useRouteMatch, useHistory } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-import { Box, Tooltip, Typography } from '@material-ui/core';
-// import HelpIcon from '@material-ui/icons/Help';
+import { Box, Grid, Tooltip, Typography } from '@material-ui/core';
+import HelpIcon from '@material-ui/icons/Help';
 import { unix_to_short_date } from '../../util/utils';
 import FullNodeConnections from './FullNodeConnections';
 import LayoutMain from '../layout/LayoutMain';
 import FullNodeBlockSearch from './FullNodeBlockSearch';
-import FullNodeCards from './card/FullNodeCards';
 
 /* global BigInt */
 
@@ -69,11 +68,7 @@ const cols = [
       const height = get(row, 'reward_chain_block.height');
 
       if (!isFinished) {
-        return (
-          <i>
-            <FormatLargeNumber value={foliageHeight} />
-          </i>
-        );
+        return <i><FormatLargeNumber value={foliageHeight} /></i>;
       }
 
       return <FormatLargeNumber value={height} />;
@@ -101,7 +96,6 @@ const cols = [
   },
 ];
 
-/*
 const getStatusItems = (state, connected, latestPeakTimestamp, networkInfo) => {
   const status_items = [];
   if (state.sync && state.sync.sync_mode) {
@@ -111,8 +105,7 @@ const getStatusItems = (state, connected, latestPeakTimestamp, networkInfo) => {
       label: <Trans>Status</Trans>,
       value: (
         <Trans>
-          Syncing <FormatLargeNumber value={progress} />/
-          <FormatLargeNumber value={tip} />
+          Syncing <FormatLargeNumber value={progress} />/<FormatLargeNumber value={tip} />
         </Trans>
       ),
       colour: 'orange',
@@ -241,7 +234,6 @@ const StatusCell = (props) => {
   );
 };
 
-
 const FullNodeStatus = (props) => {
   const blockchainState = useSelector(
     (state) => state.full_node_state.blockchain_state,
@@ -254,16 +246,11 @@ const FullNodeStatus = (props) => {
     (state) => state.full_node_state.latest_peak_timestamp,
   );
 
-  const networkInfo = useSelector((state) => state.wallet_state.network_info);
+  const networkInfo = useSelector(
+    (state) => state.wallet_state.network_info,
+  );
 
-  const statusItems =
-    blockchainState &&
-    getStatusItems(
-      blockchainState,
-      connected,
-      latestPeakTimestamp,
-      networkInfo,
-    );
+  const statusItems = blockchainState && getStatusItems(blockchainState, connected, latestPeakTimestamp, networkInfo);
 
   return (
     <Card title={<Trans>Full Node Status</Trans>}>
@@ -274,12 +261,13 @@ const FullNodeStatus = (props) => {
           ))}
         </Grid>
       ) : (
-        <Loading center />
+        <Flex justifyContent="center">
+          <Loading />
+        </Flex>
       )}
     </Card>
   );
 };
-*/
 
 const BlocksCard = () => {
   const { url } = useRouteMatch();
@@ -312,7 +300,9 @@ const BlocksCard = () => {
       {rows.length ? (
         <Table cols={cols} rows={rows} onRowClick={handleRowClick} />
       ) : (
-        <Loading center />
+        <Flex justifyContent="center">
+          <Loading />
+        </Flex>
       )}
     </Card>
   );
@@ -321,13 +311,8 @@ const BlocksCard = () => {
 export default function FullNode() {
   return (
     <LayoutMain title={<Trans>Full Node</Trans>}>
-      <Flex gap={1}>
-        <Typography variant="h5" gutterBottom>
-          <Trans>Full Node Overview</Trans>
-        </Typography>
-      </Flex>
       <Flex flexDirection="column" gap={3}>
-        <FullNodeCards />
+        <FullNodeStatus />
         <BlocksCard />
         <FullNodeConnections />
       </Flex>

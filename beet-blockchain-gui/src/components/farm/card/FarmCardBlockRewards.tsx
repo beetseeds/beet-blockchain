@@ -13,8 +13,7 @@ export default function FarmCardBlockRewards() {
   );
 
   const farmerRewardAmount = useSelector(
-    (state: RootState) =>
-      state.wallet_state.farmed_amount?.farmer_reward_amount,
+    (state: RootState) => state.wallet_state.farmed_amount?.farmer_reward_amount,
   );
 
   const poolRewardAmount = useSelector(
@@ -23,9 +22,7 @@ export default function FarmCardBlockRewards() {
 
   const blockRewards = useMemo(() => {
     if (farmerRewardAmount !== undefined && poolRewardAmount !== undefined) {
-      const val =
-        BigInt(farmerRewardAmount.toString()) +
-        BigInt(poolRewardAmount.toString());
+      const val = BigInt(farmerRewardAmount.toString()) + BigInt(poolRewardAmount.toString());
       return mojo_to_beet(val);
     }
   }, [farmerRewardAmount, poolRewardAmount]);

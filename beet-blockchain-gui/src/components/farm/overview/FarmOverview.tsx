@@ -2,13 +2,7 @@ import React from 'react';
 import { Trans } from '@lingui/macro';
 import { Flex, More } from '@beet/core';
 import { useSelector } from 'react-redux';
-import {
-  Box,
-  MenuItem,
-  CircularProgress,
-  ListItemIcon,
-  Typography,
-} from '@material-ui/core';
+import { Box, MenuItem, CircularProgress, ListItemIcon, Typography } from '@material-ui/core';
 import { Settings as SettingsIcon } from '@material-ui/icons';
 import type { RootState } from '../../../modules/rootReducer';
 import FarmOverviewHero from './FarmOverviewHero';
@@ -26,7 +20,9 @@ export default function FarmOverview() {
 
   function handleManageFarmingRewards() {
     // @ts-ignore
-    openDialog(<FarmManageFarmingRewards />);
+    openDialog((
+      <FarmManageFarmingRewards />
+    ));
   }
 
   return (
@@ -40,12 +36,7 @@ export default function FarmOverview() {
         <More>
           {({ onClose }) => (
             <Box>
-              <MenuItem
-                onClick={() => {
-                  onClose();
-                  handleManageFarmingRewards();
-                }}
-              >
+              <MenuItem onClick={() => { onClose(); handleManageFarmingRewards(); }}>
                 <ListItemIcon>
                   <SettingsIcon fontSize="small" />
                 </ListItemIcon>
@@ -60,11 +51,11 @@ export default function FarmOverview() {
 
       {loading ? (
         <CircularProgress />
-      ) : hasPlots ? (
+      ) : (hasPlots ? (
         <FarmOverviewCards />
       ) : (
         <FarmOverviewHero />
-      )}
+      ))}
     </>
   );
 }

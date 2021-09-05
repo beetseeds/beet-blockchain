@@ -195,7 +195,8 @@ if (!handleSquirrelEvent()) {
             title: i18n._(/* i18n */ { id: 'Confirm' }),
             message: i18n._(
               /* i18n */ {
-                id: 'Are you sure you want to quit? GUI Plotting and farming will stop.',
+                id:
+                  'Are you sure you want to quit? GUI Plotting and farming will stop.',
               },
             ),
           });
@@ -398,15 +399,15 @@ if (!handleSquirrelEvent()) {
             },
           },
           {
-            label: i18n._(/* i18n */ { id: 'Chat on Discord' }),
+            label: i18n._(/* i18n */ { id: 'Chat on KeyBase' }),
             click: () => {
-              openExternal('https://discord.gg/cSrV78ye');
+              openExternal('https://keybase.io/team/beet_network.public');
             },
           },
           {
             label: i18n._(/* i18n */ { id: 'Follow on Twitter' }),
             click: () => {
-              openExternal('https://twitter.com/beetcrypto1');
+              openExternal('https://twitter.com/beet_project');
             },
           },
         ],

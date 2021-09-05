@@ -1,14 +1,6 @@
 import React, { ReactNode } from 'react';
 import styled from 'styled-components';
-import {
-  Avatar,
-  Card,
-  CardContent,
-  CardHeader,
-  Divider,
-  Grid,
-  Typography,
-} from '@material-ui/core';
+import { Avatar, Card, CardContent, CardHeader, Divider, Grid, Typography } from '@material-ui/core';
 import Flex from '../Flex';
 
 const StyledCardContent = styled(CardContent)`
@@ -21,21 +13,27 @@ const StyledStep = styled(Avatar)`
 `;
 
 type Props = {
-  children: ReactNode;
-  title: ReactNode;
-  step: ReactNode;
-  action?: ReactNode;
+  children: ReactNode,
+  title: ReactNode,
+  step: ReactNode,
 };
 
 export default function CardStep(props: Props) {
-  const { children, step, title, action } = props;
+  const { children, step, title } = props;
 
   return (
     <Card>
       <CardHeader
-        avatar={<StyledStep aria-label="step">{step}</StyledStep>}
-        title={<Typography variant="h6">{title}</Typography>}
-        action={action}
+        avatar={
+          <StyledStep aria-label="step">
+            {step}
+          </StyledStep>
+        }
+        title={(
+          <Typography variant="h6">
+            {title}
+          </Typography>
+        )}
       />
       <Divider />
       <StyledCardContent>

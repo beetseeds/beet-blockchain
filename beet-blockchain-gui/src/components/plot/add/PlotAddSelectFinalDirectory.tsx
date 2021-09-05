@@ -20,12 +20,15 @@ export default function PlotAddSelectFinalDirectory() {
   }
 
   return (
-    <CardStep step="4" title={<Trans>Select Final Directory</Trans>}>
+    <CardStep
+      step="4"
+      title={(
+        <Trans>Select Final Directory</Trans>
+      )}
+    >
       <Typography variant="subtitle1">
         <Trans>
-          Select the final destination for the folder where you would like the
-          plot to be stored. We recommend you use a large slow hard drive (like
-          external HDD).
+          Select the final destination for the folder where you would like the plot to be stored. We recommend you use a large slow hard drive (like external HDD).
         </Trans>
       </Typography>
 
@@ -33,12 +36,16 @@ export default function PlotAddSelectFinalDirectory() {
         <TextField
           onClick={handleSelect}
           fullWidth
-          label={<Trans>Final folder location</Trans>}
-          name="finalLocation"
+          label={
+            <Trans>
+              Final folder location
+            </Trans>
+          }
+          name='finalLocation'
           inputProps={{
             readOnly: true,
           }}
-          variant="filled"
+          variant="outlined"
           rules={{
             minLength: {
               value: 1,
@@ -51,14 +58,12 @@ export default function PlotAddSelectFinalDirectory() {
           }}
           required
         />
-        <ButtonSelected
-          onClick={handleSelect}
-          size="large"
-          variant="outlined"
-          selected={hasFinalLocation}
-          nowrap
-        >
-          {hasFinalLocation ? <Trans>Selected</Trans> : <Trans>Browse</Trans>}
+        <ButtonSelected onClick={handleSelect} size="large" variant="contained" selected={hasFinalLocation}>
+          {hasFinalLocation ? (
+            <Trans>Selected</Trans>
+          ) : (
+            <Trans>Browse</Trans>
+          )}
         </ButtonSelected>
       </Flex>
     </CardStep>

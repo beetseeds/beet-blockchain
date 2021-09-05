@@ -25,9 +25,14 @@ function getGap(gap: GAP_SIZE, theme: any): string {
 const StyledGapBox = styled(({ rowGap, columnGap, ...rest }) => (
   <Box {...rest} />
 ))`
-  > *:not(:last-child) {
-    ${({ rowGap }) => rowGap && `margin-bottom: ${rowGap}`};
+  > * {
+    margin-bottom: ${({ rowGap }) => rowGap};
     ${({ columnGap }) => columnGap && `margin-right: ${columnGap}`};
+
+    &:last-child {
+      margin-bottom: 0;
+      ${({ columnGap }) => columnGap && `margin-right: 0`};
+    }
   }
 `;
 
@@ -35,16 +40,14 @@ type Props = BoxProps & {
   gap?: GAP_SIZE;
   rowGap?: GAP_SIZE;
   columnGap?: GAP_SIZE;
-  inline?: boolean;
 };
 
 export default function Flex(props: Props) {
   const {
-    gap = '0',
+    gap = '0px',
     flexDirection,
     rowGap = gap,
     columnGap = gap,
-    inline,
     ...rest
   } = props;
 
@@ -57,7 +60,7 @@ export default function Flex(props: Props) {
 
   return (
     <StyledGapBox
-      display={inline ? 'inline-flex' : 'flex'}
+      display="flex"
       flexDirection={flexDirection}
       rowGap={rowGapValue}
       columnGap={columnGapValue}
@@ -65,7 +68,3 @@ export default function Flex(props: Props) {
     />
   );
 }
-
-Flex.defaultProps = {
-  inline: false,
-};
