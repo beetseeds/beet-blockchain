@@ -6,5 +6,5 @@ export default function useCurrencyCode(): string | undefined {
     (state: RootState) => state.wallet_state.network_info?.network_prefix,
   );
 
-  return networkPrefix && networkPrefix.toUpperCase();
+  return 'XBT';
 }

@@ -7,7 +7,7 @@ module.exports = {
     Wrapper: path.join(__dirname, "src/StyleguidistMuiWrapper"),
   },
   ribbon: {
-    url: "https://github.com/beet-Network/beet-blockchain",
+    url: "https://github.com/beet-network/beet-blockchain",
   },
   version,
 };

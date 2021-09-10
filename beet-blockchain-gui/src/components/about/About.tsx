@@ -11,13 +11,13 @@ const GlobalStyle = createGlobalStyle`
     background-color: silver;
   }
 
-  body { 
+  body {
     margin: 0;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    color: rgb(31, 31, 31);
+    color: rgb(233, 93, 93);
     background-color: rgb(238, 238, 238);
     font-size: 12px;
     font-family: 'Helvetica', 'Arial', 'ヒラギノ角ゴ Pro W3', 'Hiragino Kaku Gothic Pro', 'メイリオ', Meiryo, 'ＭＳ Ｐゴシック', 'MS PGothic', sans-serif;
@@ -44,25 +44,25 @@ const StyledLogoContainer = styled.div`
 const StyledTitle = styled.h2`
   margin-top: 0;
   margin-bottom: 1rem;
-  color: rgb(31, 31, 31);
+  color: rgb(233, 93, 93);
 `;
 
 const StyledSubTitle = styled.h3`
   margin-top: 0;
   margin-bottom: 1rem;
-  color: rgb(31, 31, 31);
+  color: rgb(233, 93, 93);
 `;
 
 const BugReport = styled.a`
   position: absolute;
   right: 0.5rem;
   bottom: 0.5rem;
-  color: rgb(128, 160, 194);
+  color: rgb(233, 93, 93);
 `;
 
 const VersionsTable = styled.table`
   border-collapse: collapse;
-  color: rgb(153, 153, 153);
+  color: rgb(233, 93, 93);
   font-size: 12px;
 `;
 
@@ -70,7 +70,7 @@ const Spacer = styled.div`
   margin-bottom: 1rem;
 `;
 
-const url = 'https://beetnetwork.org';
+const url = 'https://www.beet.cc';
 
 type Props = {
   version: string;
@@ -86,10 +86,7 @@ type Props = {
 export default function About(props: Props) {
   const {
     version,
-    packageJson: {
-      productName,
-      description,
-    },
+    packageJson: { productName, description },
     versions,
   } = props;
 
@@ -98,7 +95,10 @@ export default function About(props: Props) {
       <head>
         <base href="./" />
         <meta charSet="utf-8" />
-        <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1, user-scalable=yes" />
+        <meta
+          name="viewport"
+          content="width=device-width, minimum-scale=1.0, initial-scale=1, user-scalable=yes"
+        />
         <title>About {productName}</title>
       </head>
       <body>
@@ -108,13 +108,13 @@ export default function About(props: Props) {
             <img src={icon} />
           </StyledLogoContainer>
 
-          <StyledTitle>{productName} {version}</StyledTitle>
+          <StyledTitle>
+            {productName} {version}
+          </StyledTitle>
         </StyledLink>
         <StyledSubTitle>{description}</StyledSubTitle>
         <Spacer />
-        <div className="copyright">
-          Copyright (c) 2021 beet Network
-        </div>
+        <div className="copyright">Copyright (c) 2021 beet Network</div>
         <Spacer />
         <VersionsTable>
           {versions?.electron && (
@@ -143,7 +143,10 @@ export default function About(props: Props) {
           )}
         </VersionsTable>
 
-        <BugReport href="https://github.com/beet-Network/beet-blockchain/issues" target="_blank">
+        <BugReport
+          href="https://github.com/beet-network/beet-blockchain/issues"
+          target="_blank"
+        >
           Report an issue
         </BugReport>
         {'{{CSS}}'}

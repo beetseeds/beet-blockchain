@@ -25,7 +25,7 @@ config/keys.yaml
 config/plots.yaml
 
 # Bundled code
-beet-blockchain.tar.gz.tar.gz
+chia-blockchain.tar.gz.tar.gz
 
 # PyInstaller
 #  Usually these files are written by a python script from a template
@@ -66,7 +66,7 @@ activate
 .idea
 
 # Packaging
-beet-blockchain.tar.gz
+chia-blockchain.tar.gz
 
 # Timelord utilities
 vdf_bench
@@ -94,3 +94,4 @@ src/locales/_build
 src/locales/**/*.js
 daemon/
 win_code_sign_cert.p12
+beet-darwin-x64/

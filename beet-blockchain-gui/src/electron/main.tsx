@@ -110,7 +110,7 @@ if (!handleSquirrelEvent()) {
   // if any of these checks return false, don't do any other initialization since the app is quitting
   if (ensureSingleInstance() && ensureCorrectEnvironment()) {
     // this needs to happen early in startup so all processes share the same global config
-    beetConfig.loadConfig('mainnet');
+    beetConfig.loadConfig(beetEnvironment.getbeetVersion());
     global.sharedObj = { local_test };
 
     const exitPyProc = (e) => {};
@@ -195,8 +195,7 @@ if (!handleSquirrelEvent()) {
             title: i18n._(/* i18n */ { id: 'Confirm' }),
             message: i18n._(
               /* i18n */ {
-                id:
-                  'Are you sure you want to quit? GUI Plotting and farming will stop.',
+                id: 'Are you sure you want to quit? GUI Plotting and farming will stop.',
               },
             ),
           });
@@ -359,7 +358,7 @@ if (!handleSquirrelEvent()) {
             label: i18n._(/* i18n */ { id: 'beet Blockchain Wiki' }),
             click: () => {
               openExternal(
-                'https://github.com/beet-Network/beet-blockchain/wiki',
+                'https://github.com/beet-network/beet-blockchain/wiki',
               );
             },
           },
@@ -367,7 +366,7 @@ if (!handleSquirrelEvent()) {
             label: i18n._(/* i18n */ { id: 'Frequently Asked Questions' }),
             click: () => {
               openExternal(
-                'https://github.com/beet-Network/beet-blockchain/wiki/FAQ',
+                'https://github.com/beet-network/beet-blockchain/wiki/FAQ',
               );
             },
           },
@@ -375,7 +374,7 @@ if (!handleSquirrelEvent()) {
             label: i18n._(/* i18n */ { id: 'Release Notes' }),
             click: () => {
               openExternal(
-                'https://github.com/beet-Network/beet-blockchain/releases',
+                'https://github.com/beet-network/beet-blockchain/releases',
               );
             },
           },
@@ -383,7 +382,31 @@ if (!handleSquirrelEvent()) {
             label: i18n._(/* i18n */ { id: 'Contribute on GitHub' }),
             click: () => {
               openExternal(
-                'https://github.com/beet-Network/beet-blockchain/blob/master/CONTRIBUTING.md',
+                'https://github.com/beet-network/beet-blockchain/blob/master/CONTRIBUTING.md',
+              );
+            },
+          },
+          {
+            label: i18n._(/* i18n */ { id: 'beetHub' }),
+            click: () => {
+              openExternal(
+                'https://www.beet-hub.com',
+              );
+            },
+          },
+          {
+            label: i18n._(/* i18n */ { id: 'beet Forks Calculator' }),
+            click: () => {
+              openExternal(
+                'https://beetforkscalculator.com',
+              );
+            },
+          },
+          {
+            label: i18n._(/* i18n */ { id: 'beetforks Blockchain' }),
+            click: () => {
+              openExternal(
+                'https://beetforksblockchain.com',
               );
             },
           },
@@ -394,7 +417,7 @@ if (!handleSquirrelEvent()) {
             label: i18n._(/* i18n */ { id: 'Report an Issue...' }),
             click: () => {
               openExternal(
-                'https://github.com/beet-Network/beet-blockchain/issues',
+                'https://github.com/beet-network/beet-blockchain/issues',
               );
             },
           },
@@ -407,7 +430,7 @@ if (!handleSquirrelEvent()) {
           {
             label: i18n._(/* i18n */ { id: 'Follow on Twitter' }),
             click: () => {
-              openExternal('https://twitter.com/beet_project');
+              openExternal('https://twitter.com/beetProject');
             },
           },
         ],
